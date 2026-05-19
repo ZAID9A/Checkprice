@@ -1,0 +1,240 @@
+/* ===== الأساسيات ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+}
+
+/* ===== الهيدر ===== */
+header {
+  background: linear-gradient(135deg, #2E7D32, #4CAF50);
+  color: white;
+  padding: 24px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.last-update {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.last-update span {
+  font-weight: 600;
+}
+
+/* ===== المحتوى الرئيسي ===== */
+main {
+  flex: 1;
+  padding: 24px 0;
+}
+
+/* ===== مؤشر التحميل ===== */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.loading::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 16px auto 0;
+  border: 3px solid #e0e0e0;
+  border-top-color: #4CAF50;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== رسالة الخطأ ===== */
+.error {
+  background: #ffebee;
+  color: #c62828;
+  padding: 16px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ffcdd2;
+}
+
+/* ===== شبكة المنتجات ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ===== بطاقة المنتج ===== */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* صورة المنتج */
+.product-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* أيقونة افتراضية (Emoji) */
+.emoji-placeholder {
+  font-size: 72px;
+  line-height: 1;
+  user-select: none;
+}
+
+/* معلومات المنتج */
+.product-info {
+  padding: 16px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+/* الأسعار */
+.prices-list {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 14px;
+}
+
+.price-item:last-child {
+  border-bottom: none;
+}
+
+.store-name {
+  color: #666;
+  font-weight: 500;
+}
+
+.price-value {
+  font-weight: 700;
+  color: #2E7D32;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.currency-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+/* تحذير عدم الاتصال */
+.warning {
+  background: #fff3e0;
+  color: #e65100;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ffe0b2;
+}
+
+/* تاريخ التحديث */
+.product-date {
+  font-size: 12px;
+  color: #999;
+  text-align: left;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ===== الفوتر ===== */
+footer {
+  background: #1a1a1a;
+  color: #999;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 13px;
+  margin-top: auto;
+}
+
+/* ===== التجاوب مع الجوال ===== */
+@media (max-width: 600px) {
+  header h1 { font-size: 20px; }
+  header { padding: 16px 0; }
+  main { padding: 16px 0; }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .product-image { height: 130px; }
+  .emoji-placeholder { font-size: 48px; }
+  .product-info { padding: 12px; }
+  .product-name { font-size: 15px; }
+  .price-item { font-size: 12px; }
+  .price-value { font-size: 14px; }
+  .currency-icon { width: 15px; height: 15px; }
+}
+
+@media (max-width: 380px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
